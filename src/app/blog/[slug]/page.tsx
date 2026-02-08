@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getAllPosts, getPostBySlug, getPostSlugs } from "@/lib/posts";
+import { getPostBySlug, getPostSlugs } from "@/lib/posts";
 import { CATEGORY_COLORS } from "@/lib/config";
+import { markdownToHtml } from "@/lib/markdown";
 
 export function generateStaticParams() {
   return getPostSlugs().map((slug) => ({ slug }));
@@ -16,26 +17,12 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   };
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
+export default async function BlogPostPage({ params }: { params: { slug: string } }) {
   const post = getPostBySlug(params.slug);
   if (!post) notFound();
 
   const catStyle = CATEGORY_COLORS[post.category];
-
-  // Simple markdown to HTML (for basic rendering)
-  // For production, consider using a proper MDX pipeline
-  const htmlContent = post.content
-    .replace(/^### (.*$)/gm, '<h3>$1</h3>')
-    .replace(/^## (.*$)/gm, '<h2>$1</h2>')
-    .replace(/^# (.*$)/gm, '<h1>$1</h1>')
-    .replace(/`([^`]+)`/g, '<code>$1</code>')
-    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*([^*]+)\*/g, '<em>$1</em>')
-    .replace(/\n\n/g, '</p><p>')
-    .replace(/^(.+)$/gm, (match) => {
-      if (match.startsWith('<')) return match;
-      return match;
-    });
+  const htmlContent = await markdownToHtml(post.content);
 
   return (
     <article className="pt-32 pb-24 px-10 max-w-[800px] mx-auto min-h-screen">
@@ -135,7 +122,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       {/* Content */}
       <div
         className="prose-custom"
-        dangerouslySetInnerHTML={{ __html: `<p>${htmlContent}</p>` }}
+        dangerouslySetInnerHTML={{ __html: htmlContent }}
       />
     </article>
   );
