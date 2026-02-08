@@ -181,9 +181,19 @@
   margin-bottom: 8px;
 }
 
-/* ─── Math notation styling ─── */
-.math-inline {
-  font-family: var(--font-display);
-  font-style: italic;
-  color: var(--color-math);
+/* ─── KaTeX math styling ─── */
+.prose-custom .katex-display {
+  margin: 28px 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 4px 0;
+}
+
+.prose-custom .katex {
+  color: var(--color-text-primary);
+  font-size: 1.05em;
+}
+
+.prose-custom .katex-display > .katex {
+  font-size: 1.15em;
 }
