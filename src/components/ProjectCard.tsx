@@ -13,16 +13,23 @@ export default function ProjectCard({ project }: { project: Project }) {
   const [hovered, setHovered] = useState(false);
   const statusStyle = STATUS_STYLES[project.status ?? "Active"];
 
+  const Wrapper = project.link ? "a" : "div";
+  const wrapperProps = project.link
+    ? { href: project.link, target: "_blank" as const, rel: "noopener noreferrer" }
+    : {};
+
   return (
-    <div
+    <Wrapper
+      {...wrapperProps}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="relative overflow-hidden rounded-2xl p-8 cursor-pointer transition-all duration-400"
+      className="relative overflow-hidden rounded-2xl p-8 cursor-pointer transition-all duration-400 block no-underline"
       style={{
         border: `1px solid ${hovered ? "rgba(167,139,250,0.2)" : "rgba(255,255,255,0.04)"}`,
         background: hovered
           ? "linear-gradient(135deg, rgba(167,139,250,0.04) 0%, rgba(103,232,249,0.02) 100%)"
           : "rgba(255,255,255,0.015)",
+        color: "inherit",
       }}
     >
       {/* Background symbol */}
@@ -109,6 +116,6 @@ export default function ProjectCard({ project }: { project: Project }) {
           ))}
         </div>
       </div>
-    </div>
+    </Wrapper>
   );
 }

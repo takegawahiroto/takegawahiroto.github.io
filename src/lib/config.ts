@@ -62,6 +62,7 @@ export const PROJECTS: Project[] = [
     tech: ["Python", "JAX", "Diffrax"],
     icon: "∂",
     status: "Active",
+    link: "https://github.com/takegawahiroto/neural-ode-playground",
   },
   {
     name: "Proof Assistant CLI",
@@ -70,6 +71,7 @@ export const PROJECTS: Project[] = [
     tech: ["Rust", "Lean 4", "CLI"],
     icon: "∀",
     status: "Beta",
+    link: "https://github.com/takegawahiroto/proof-assistant-cli",
   },
   {
     name: "LLM Evaluation Framework",
@@ -78,6 +80,7 @@ export const PROJECTS: Project[] = [
     tech: ["Python", "TypeScript", "FastAPI"],
     icon: "λ",
     status: "Active",
+    link: "https://github.com/takegawahiroto/llm-eval-framework",
   },
   {
     name: "Obsidian Knowledge Graph",
@@ -86,6 +89,7 @@ export const PROJECTS: Project[] = [
     tech: ["TypeScript", "D3.js", "Obsidian API"],
     icon: "∞",
     status: "Released",
+    link: "https://github.com/takegawahiroto/obsidian-knowledge-graph",
   },
 ];
 
