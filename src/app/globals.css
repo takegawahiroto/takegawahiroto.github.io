@@ -8,6 +8,7 @@
   --color-border-hover: rgba(167, 139, 250, 0.2);
   --color-text-primary: #fafafa;
   --color-text-secondary: #a1a1aa;
+  --color-text-prose: #e4e4e7;
   --color-text-muted: #71717a;
   --color-text-dim: #52525b;
   --color-text-ghost: #3f3f46;
@@ -101,7 +102,7 @@
 /* ─── Prose for blog posts ─── */
 .prose-custom {
   font-family: var(--font-body);
-  color: var(--color-text-secondary);
+  color: var(--color-text-prose);
   line-height: 1.85;
   font-size: 16px;
   font-weight: 300;
@@ -224,7 +225,7 @@
 .prose-custom td {
   padding: 12px 16px;
   border-bottom: 1px solid var(--color-border);
-  color: var(--color-text-secondary);
+  color: var(--color-text-prose);
   line-height: 1.8;
 }
 
@@ -237,11 +238,11 @@
 }
 
 .prose-custom .katex {
-  color: var(--color-text-secondary);
+  color: var(--color-text-prose);
   font-size: 1.05em;
 }
 
 .prose-custom .katex-display > .katex {
-  color: var(--color-text-secondary);
+  color: var(--color-text-prose);
   font-size: 1.15em;
 }
