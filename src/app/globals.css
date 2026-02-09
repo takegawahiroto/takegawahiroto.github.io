@@ -107,6 +107,16 @@
   font-weight: 300;
 }
 
+.prose-custom h1 {
+  font-family: var(--font-display);
+  color: var(--color-text-primary);
+  font-size: 34px;
+  font-weight: 400;
+  margin: 56px 0 20px;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
 .prose-custom h2 {
   font-family: var(--font-display);
   color: var(--color-text-primary);
@@ -227,10 +237,11 @@
 }
 
 .prose-custom .katex {
-  color: var(--color-text-primary);
+  color: var(--color-text-secondary);
   font-size: 1.05em;
 }
 
 .prose-custom .katex-display > .katex {
+  color: var(--color-text-secondary);
   font-size: 1.15em;
 }
