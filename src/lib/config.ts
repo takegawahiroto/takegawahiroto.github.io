@@ -29,7 +29,7 @@ export const SITE_CONFIG = {
   name: "Your Name",
   title: "Researcher & Engineer",
   description:
-    "数学の美しさと、AIの可能性と、ソフトウェアの実践をひとつの場所に。理論と実装の交差点を探求しています。",
+    "数学に興味があります。ソフトウェアやAIも使い面白い世界を味わいたい",
   url: "https://yourusername.github.io",
 } as const;
 
